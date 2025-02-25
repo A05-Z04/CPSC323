@@ -79,6 +79,7 @@ matched.
 
 
 ## Token Lexeme Specification
+'''
 identifier *([𝑎 − 𝑍])([𝑎 − 𝑍]|[0 − 9])
 number *([0 − 9])([0 − 9)
 comment *(//)([𝑎𝑛𝑦 𝑠𝑦𝑚𝑏𝑜𝑙 𝑜𝑟 𝑤ℎ𝑖𝑡𝑒𝑠𝑝𝑎𝑐𝑒]) (\𝑛)
@@ -114,9 +115,10 @@ int return if switch
 float while else case
 char for goto unsigned
 main break continue void
+'''
 
 # TEST CASE
-
+'''
 Case 1
 Feed your lexer every lexeme from the provided Token-Lexeme list. It should output the
 appropriate token for each lexeme it is provided.
@@ -184,3 +186,6 @@ myResult = myResult * (-1);
 }
 return 0;
 }
+'''
+
+
