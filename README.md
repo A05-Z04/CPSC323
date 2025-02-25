@@ -79,113 +79,98 @@ matched.
 
 
 ## Token Lexeme Specification
-'''
-identifier *([𝑎 − 𝑍])([𝑎 − 𝑍]|[0 − 9])
-number *([0 − 9])([0 − 9)
-comment *(//)([𝑎𝑛𝑦 𝑠𝑦𝑚𝑏𝑜𝑙 𝑜𝑟 𝑤ℎ𝑖𝑡𝑒𝑠𝑝𝑎𝑐𝑒]) (\𝑛)
-leftParen (
-rightParen )
-leftBracket [
-rightBracket ]
-leftBrace {
-rightBrace }
-dot .
-plus +
-minus -
-multiply *
-divide /
-modulus %
-lessThan <
-greaterThan >
-assignment =
-semicolon ;
-comma ,
-increment ++
-decrement --
-lessThanEq <=
-greaterThanEq >=
-logicEqual ==
-logicAnd &&
-logicOr ||
-logicNot !
-bitAnd &
-bitOr |
-Keywords
-int return if switch
-float while else case
-char for goto unsigned
-main break continue void
-'''
+
+1. identifier *([𝑎 − 𝑍])([𝑎 − 𝑍]|[0 − 9])
+2. number *([0 − 9])([0 − 9)
+3. comment *(//)([𝑎𝑛𝑦 𝑠𝑦𝑚𝑏𝑜𝑙 𝑜𝑟 𝑤ℎ𝑖𝑡𝑒𝑠𝑝𝑎𝑐𝑒]) (\𝑛)
+4. leftParen (
+5. rightParen )
+6. leftBracket [
+7. rightBracket ]
+8. leftBrace {
+9. rightBrace }
+10. dot .
+11. plus +
+12. minus -
+13. multiply *
+14. divide /
+15. modulus %
+16. lessThan <
+17. greaterThan >
+18. assignment =
+19. semicolon ;
+20. comma ,
+21. increment ++
+22. decrement --
+23. lessThanEq <=
+24. greaterThanEq >=
+25. logicEqual ==
+26. logicAnd &&
+27. logicOr ||
+28. logicNot !
+29. bitAnd &
+30. bitOr |
+31. Keywords
+32. int return if switch
+33. float while else case
+34. har for goto unsigned
+35. main break continue void
+
 
 # TEST CASE
-'''
+
 Case 1
-Feed your lexer every lexeme from the provided Token-Lexeme list. It should output the
-appropriate token for each lexeme it is provided.
+Feed your lexer every lexeme from the provided Token-Lexeme list. It should output the appropriate token for each lexeme it is provided.
 
 
 Case 2
-int main()
-{
-int myInt = 0;
-myInt++;
-myInt << 1;
-return 0;
-}
+int main() { 
+  int myInt = 0;
+  myInt++;
+  myInt << 1;
+  return 0;
+  }
 
 
 Case 3
-int main()
-{
-int 1stint= 0;;
-charmyChar2;
-return0;
-}
+int main() {
+  int 1stint= 0;
+  charmyChar2;
+  return0;
+  }
 
 
 Case 4
-int main(void)
-{
-float myFloat = 0.01;
-int counter = 0;
-while (counter < 5)
-{
-++counter;
-myFloat = myFloat * 3;
-}
-counter > myFloat;
-return 0;
-}
+int main(void) {
+  float myFloat = 0.01;
+  int counter = 0;
+  while (counter < 5) {
+    ++counter;
+    myFloat = myFloat * 3;
+    } 
+  counter > myFloat;
+  return 0;
+  }
 
 
 Case 5
-int main()
-{
-int myResult1 = 0;
-int arraySize = 5;
-int myArray[arraySize] = {1,2,3,4,5};
-// this is a for loop
-for (int i = 0; i < arraySize; ++i)
-{
-if (myArray[i] % 2 == 0)
-{
-myResult++;
-}
-else
-{
-myResult--;
-}
-}
-if (myResult >= 0)
-{
-continue;
-}
-else
-{
-myResult = myResult * (-1);
-}
-return 0;
-}
-'''
-
-
+int main() { 
+  int myResult1 = 0;
+  int arraySize = 5;
+  int myArray[arraySize] = {1,2,3,4,5};
+  // this is a for loop
+  for (int i = 0;
+  i < arraySize; ++i)
+    {if (myArray[i] % 2 == 0)
+      {myResult++;
+      } else {
+          myResult--;
+        }
+      }
+      if (myResult >= 0)
+        {continue;
+          } else {
+          myResult = myResult * (-1);
+          }
+          return 0;
+          }
