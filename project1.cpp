@@ -10,7 +10,7 @@
 using namespace std;
 
 // Define token types
-unordered_map<string, string> TOKENS = {  // I put them in wrong order pair 
+unordered_map<string, string> TOKENS = {  
     {"(", "leftParen"}, {")", "rightParen"}, {"[", "leftBracket"}, {"]", "rightBracket"},
     {"{", "leftBrace"}, {"}", "rightBrace"}, {".", "dot"}, {"+", "plus"}, {"-", "minus"},
     {"*", "multiply"}, {"/", "divide"}, {"%", "modulus"}, {"<", "lessThan"},
@@ -52,6 +52,10 @@ std::vector<std::pair<std::string, std::string>> lexicalAnalyzer(const std::stri
             }
 
             // check if token 
+            else if(TOKENS.count(token)) {  // Checks if the current token is in the TOKENS mao
+                output_token.push_back({token,TOKENS[token]}); 
+                continue;
+            }
 
             // check if keyword
 
@@ -64,8 +68,8 @@ std::vector<std::pair<std::string, std::string>> lexicalAnalyzer(const std::stri
     return output_token;
 }
 
-int main() {
-    std::string testFiles[] = {
+int main() {  // Array of test files created
+    std::string testFiles[] = {   
         "Test Cases/Case1.txt"
         "Test Cases/Case2.txt"
         "Test Cases/Case3.txt"
@@ -73,9 +77,9 @@ int main() {
         "Test Cases/Case5.txt"
     };
 
-    for( const auto& filename: testFiles) {
-        std::vector<std::pair<std::string, std::string>> output_token = lexicalAnalyzer(filename);
-        for( const auto& tokens: output_token)
+    for( const auto& filename: testFiles) {  // loop goinf through each test case
+        std::vector<std::pair<std::string, std::string>> output_token = lexicalAnalyzer(filename);  // vector that holds the token and types
+        for( const auto& tokens: output_token) // A loop to print out the tokens and types from output_token vector
         {
             std::cout << "Token: " << tokens.first << ", Type: " << tokens.second<< std::endl;
         }
