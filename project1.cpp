@@ -34,13 +34,25 @@ std::vector<std::pair<std::string, std::string>> lexicalAnalyzer(const std::stri
     }
 
     std::string currentLine; // String for containing the current line from the file
+    std::vector<std::pair<std::string, std::string>> output_token;
     while(getline(file, currentLine)) // Looping through each line
     {
         std::istringstream lineStream(currentLine); // Line is taken from file and contained in string currentLine
         std::string token; // String to hold current token
         while(lineStream >> token) // Need to loop through the string to get each token and check type
         {
-            // check if number
+    
+            bool is_number = true;
+            for(char character : token) {
+                if(!isdigit(character))  //checking token represents number
+                is_number = false;
+                break; //stops checking characters
+            }
+
+            if(is_number && !token.empty()) {      //checks if token is number and push number to vector
+            output_token.push_back({"number", token});
+            continue; 
+            }
 
             // check if token 
 
