@@ -27,20 +27,17 @@ unordered_set<string> KEYWORDS = {"int", "return", "if", "switch", "float", "whi
 std::vector<std::pair<std::string, std::string>> lexicalAnalyzer(const std::string fileName)
 {
     ifstream file(fileName);  // Extracts info from file
-    if(!file)  // Error test case 
-    {
+    if(!file) {// Error test case
         std::cerr << "Error opening file!";
         return;
     }
 
     std::string currentLine; // String for containing the current line from the file
     std::vector<std::pair<std::string, std::string>> output_token;
-    while(getline(file, currentLine)) // Looping through each line
-    {
+    while(getline(file, currentLine)) {// Looping through each line
         std::istringstream lineStream(currentLine); // Line is taken from file and contained in string currentLine
         std::string token; // String to hold current token
-        while(lineStream >> token) // Need to loop through the string to get each token and check type
-        {
+        while(lineStream >> token) {// Need to loop through the string to get each token and check type
     
             bool is_number = true;
             for(char character : token) {
@@ -64,8 +61,25 @@ std::vector<std::pair<std::string, std::string>> lexicalAnalyzer(const std::stri
         }
     }
 
+    return output_token;
 }
 
 int main() {
+    std::string testFiles[] = {
+        "Test Cases/Case1.txt"
+        "Test Cases/Case2.txt"
+        "Test Cases/Case3.txt"
+        "Test Cases/Case4.txt"
+        "Test Cases/Case5.txt"
+    };
+
+    for( const auto& filename: testFiles) {
+        std::vector<std::pair<std::string, std::string>> output_token = lexicalAnalyzer(filename);
+        for( const auto& tokens: output_token)
+        {
+            std::cout << "Token: " << tokens.first << ", Type: " << tokens.second<< std::endl;
+        }
+
+    }
     return 0;
 }
